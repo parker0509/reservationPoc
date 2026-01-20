@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: toy-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: reservation
+      MYSQL_USER: app
+      MYSQL_PASSWORD:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: spring-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql-data:
