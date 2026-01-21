@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     credentialsId: 'github-token',
-                    url: 'https://github.com/github.com/parker0509/reservationPoc'
+                    url: 'https://github.com/parker0509/reservationPoc'
             }
         }
 
