@@ -9,9 +9,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: reservation
-      MYSQL_USER: app
-      MYSQL_PASSWORD:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: app123
     volumes:
       - mysql-data:/var/lib/mysql
 
