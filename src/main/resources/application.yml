@@ -8,14 +8,15 @@ spring:
     password: app123
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-mybatis:
-  mapper-locations: classpath:/mapper/**/*.xml
-  type-aliases-package: com.cms.cms.domain
-  configuration:
-    map-underscore-to-camel-case: true
-    default-fetch-size: 100
-    default-statement-timeout: 30
+  jpa:
+    hibernate:
+      ddl-auto: update       # 엔티티 기반으로 테이블 자동 생성/업데이트
+    show-sql: true           # 실행 SQL 로그 출력
+    properties:
+      hibernate.format_sql: true
+      jdbc.lob.non_contextual_creation: true  # BLOB/CLOB 오류 예방용
 
 logging:
   level:
-    com.example.reservation.mapper: debug
+    org.hibernate.SQL: debug       # 실제 SQL 로그 출력
+    org.hibernate.type.descriptor.sql.BasicBinder: trace  # 파라미터 바인딩 확인

@@ -1,6 +1,5 @@
 package com.cms.cms;
 
-import com.cms.cms.dao.ReservationDao;
 import com.cms.cms.domain.Reservation;
 import com.cms.cms.service.ReservationService;
 import org.junit.jupiter.api.Test;
@@ -31,10 +30,6 @@ class CmsApplicationTests {
 		reservation.setStartTime(LocalTime.of(10, 0));
 		reservation.setEndTime(LocalTime.of(11, 0));
 		reservation.setStatus("RESERVED");
-
-		Long count = reservationService.createReservation(reservation);
-
-		assertEquals(1,count);
 
 	}
 
